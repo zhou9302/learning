@@ -9,6 +9,7 @@ import layout from 'views/layoutDemo/layout'
 import swiper from 'views/swiperDemo/index'
 import dayjs from 'views/dayjs/index'
 import mockJS from 'views/mockJSDemo/index'
+import {es6Router} from './children/es6.js'
 Vue.use(Router)
 
 export default new Router({
@@ -65,6 +66,13 @@ export default new Router({
       path: '/mockJS',
       name: 'mockJS',
       component: mockJS
+    },
+    // ES6学习
+    {
+      path: '/es6',
+      name: 'es6',
+      component: resolve => require(['views/es6/index'], resolve),
+      children: es6Router
     }
   ]
 })
