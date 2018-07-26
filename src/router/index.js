@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import d3chart from 'views/d3Demo/Sunburst'
-import echartline from 'views/echartDemo/line'
 import grail from 'views/layoutDemo/grail'
 import flex from 'views/layoutDemo/flex'
 import layout from 'views/layoutDemo/layout'
@@ -10,6 +9,7 @@ import swiper from 'views/swiperDemo/index'
 import dayjs from 'views/dayjs/index'
 import mockJS from 'views/mockJSDemo/index'
 import {es6Router} from './children/es6.js'
+import {echartDemo} from './children/echartDemo.js'
 Vue.use(Router)
 
 export default new Router({
@@ -27,9 +27,10 @@ export default new Router({
     },
     // echart图形demo
     {
-      path: '/echart/line',
-      name: 'line',
-      component: echartline
+      path: '/echartDemo',
+      name: 'echartDemo',
+      component: resolve => require(['views/echartDemo/index'], resolve),
+      children: echartDemo
     },
     // 三栏布局
     {
