@@ -11,6 +11,18 @@ const es6Router = [
     path: 'destructuring',
     name: 'destructuring',
     component: resolve => require(['views/es6/components/destructuring.vue'], resolve)
+  }, {
+    path: 'stringExtend',
+    name: 'stringExtend',
+    component: resolve => require(['views/es6/components/stringExtend.vue'], resolve)
+  }, {
+    path: 'numberExtend',
+    name: 'numberExtend',
+    component: resolve => require(['views/es6/components/numberExtend.vue'], resolve)
+  }, {
+    path: 'functionExtend',
+    name: 'functionExtend',
+    component: resolve => require(['views/es6/components/functionExtend.vue'], resolve)
   }
 ]
 export {
