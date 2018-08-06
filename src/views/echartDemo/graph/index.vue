@@ -17,7 +17,7 @@ export default{
     }
   },
   created () {
-    axios.get('http://api.qixin.com/APIService/relation/findRelationJobResult?appkey=ca019679eacb425f9a5fd6dba94b0356&jobid=fd_rlt_res:1ca92e2c-4a8b-4272-ba35-276e423f726e')
+    axios.get('http://api.qixin.com/APIService/relation/findRelationJobResult?jobid=fd_rlt_res:89078870-c4c1-476e-b00b-ed96116963ca&appkey=ca019679eacb425f9a5fd6dba94b0356')
       .then((res) => {
         if (res.status === '200') {
           let data = res.data
@@ -29,8 +29,9 @@ export default{
             data.links[key].source = data.links[key].source_id + ''
           }
           let option = new Opt()
-          // option.series[0].data = data.nodes
-          // option.series[0].links = data.links
+          option.series[0].data = data.nodes
+          option.series[0].links = data.links
+          console.log(option)
           this.option = option
           console.log(option)
           this.draw()

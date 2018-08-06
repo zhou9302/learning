@@ -9,7 +9,7 @@ export default function () {
     series: [
       {
         type: 'graph',
-        layout: 'force',
+        layout: 'circular',
         symbolSize: 50,
         roam: true,
         label: {

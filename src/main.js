@@ -8,9 +8,11 @@ import * as d3 from 'd3'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import dayjs from 'dayjs'
+import htmlToPdf from 'utils/htmlToPdf.js'
 // require('styles/index.scss')
 require('./mock/index')
 
+Vue.use(htmlToPdf)
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 

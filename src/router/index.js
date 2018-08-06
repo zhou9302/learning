@@ -74,6 +74,11 @@ export default new Router({
       name: 'es6',
       component: resolve => require(['views/es6/index'], resolve),
       children: es6Router
+    },
+    {
+      path: '/pdf',
+      name: 'pdf',
+      component: resolve => require(['views/drawPDF/index'], resolve)
     }
   ]
 })
