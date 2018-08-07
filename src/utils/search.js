@@ -9,7 +9,15 @@ function search (list, text) {
     }
   }
 }
-
+// 过滤json中不需要的字段
+function filtration (originObj, ...rest) {
+  let obj = {}
+  for (let val of rest) {
+    obj[val] = originObj[val]
+  }
+  return obj
+}
 export {
-  search
+  search,
+  filtration
 }
