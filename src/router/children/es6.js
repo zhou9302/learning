@@ -23,6 +23,10 @@ const es6Router = [
     path: 'functionExtend',
     name: 'functionExtend',
     component: resolve => require(['views/es6/components/functionExtend.vue'], resolve)
+  }, {
+    path: 'arrayExtend',
+    name: 'arrayExtend',
+    component: resolve => require(['views/es6/components/arrayExtend.vue'], resolve)
   }
 ]
 export {

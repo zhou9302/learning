@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="echartLine">
     <div class="line" ref="echartsLine"></div>
     <div class="line" ref="echartsBar"></div>
+    <button @click="download">保存</button>
     <button @click="setObj">改</button>
     {{getObj}}
   </div>
@@ -14,7 +15,7 @@ import {mapGetters} from 'vuex'
 export default{
   data () {
     return {
-
+      myChartBar: null
     }
   },
   computed: {
@@ -27,29 +28,34 @@ export default{
     myChartLine.setOption(option)
 
     let optionBar = new Opt2()
-    var myChartBar = echarts.init(this.$refs.echartsBar)
-    myChartBar.setOption(optionBar)
-
-    // this.$nextTick(() => {
-    //   console.log(this.echarts)
-    //   this.echarts = echarts.init(this.$refs.echarts)
-    //   this.echarts.setOption(this.option)
-
-    //   this.echarts.dispatchAction({
-    //     type: 'showTip',
-    //     seriesIndex: 0,
-    //     dataIndex: this.option.yAxis[0].data.length - 1
-    //   })
-    // })
+    this.myChartBar = echarts.init(this.$refs.echartsBar)
+    this.myChartBar.setOption(optionBar)
   },
   methods: {
     setObj () {
       this.$store.dispatch('SET_OBJ', {name: 'zhou'})
+    },
+    download () {
+      var img = new Image()
+      img.src = this.myChartBar.getDataURL({
+        pixelRatio: 2,
+        backgroundColor: '#fff'
+      })
+      console.log(img)
+      var a = document.createElement('a')
+      var event = new MouseEvent('click')
+
+      a.download = '1' || '下载图片名称'
+      a.href = img.src
+      a.dispatchEvent(event)
     }
   }
 }
 </script>
-<style>
+<style scoped lang="scss">
+.echartLine{
+  background: #000;
+}
 .line{
   width:800px;
   height:500px
