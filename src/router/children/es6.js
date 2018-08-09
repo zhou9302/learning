@@ -31,6 +31,14 @@ const es6Router = [
     path: 'objectExtend',
     name: 'objectExtend',
     component: resolve => require(['views/es6/components/objectExtend.vue'], resolve)
+  }, {
+    path: 'SetAndMap',
+    name: 'SetAndMap',
+    component: resolve => require(['views/es6/components/Set&Map.vue'], resolve)
+  }, {
+    path: 'IteratorAndforOf',
+    name: 'IteratorAndforOf',
+    component: resolve => require(['views/es6/components/IteratorAndforOf.vue'], resolve)
   }
 ]
 export {
