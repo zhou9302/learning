@@ -15,7 +15,8 @@ export default{
     // this.demo2()
     // this.demo3()
     // this.demo4()
-    this.demo5()
+    // this.demo5()
+    this.demo6()
   },
   methods: {
     // ES6 允许直接写入变量和函数，作为对象的属性和方法。
@@ -188,7 +189,49 @@ export default{
       let newObj = merge1(targetDemo, d1, p1, d2)
       console.log(newObj)
     },
+    // 属性的可枚举性和遍历  （未解决）***********************************************************
     demo5 () {
+      class Animal {
+        constructor (x, y) {
+          this.x = x
+          this.y = y
+        }
+        sayName () {
+          console.log(this.x)
+        }
+      }
+      class Cats extends Animal {
+        constructor (x, y, color) {
+          super(x, y) // 调用父类的constructor(x, y)
+          this.color = color
+        }
+      }
+      let animal = new Animal('zhou', 'ying')
+      let cat = new Cats('zhou', 'ying', 'black')
+      let o = {
+        a: '11',
+        b () {
+          console.log(this.a)
+        }
+      }
+      console.log(o)
+      console.log(animal)
+      console.log(cat)
+      console.log(Object.keys(o))
+      console.log(Object.keys(animal))
+      console.log('cat,keys:', Object.keys(cat))
+      for (let key in o) {
+        console.log('o,for,in:' + o[key])
+      }
+      for (let key in animal) {
+        console.log('animal,for,in:' + animal[key])
+      }
+      for (let key in cat) {
+        console.log('cat,for,in:' + cat[key])
+      }
+      cat.sayName()
+    },
+    demo6 () {
 
     }
   }
