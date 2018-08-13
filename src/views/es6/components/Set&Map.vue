@@ -14,14 +14,23 @@ export default{
   },
   methods: {
     demo1 () {
+      // ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。(去重)
+      // Set 内部判断两个值是否不同，使用的算法叫做“Same-value-zero equality”，它类似于精确相等运算符（===），主要的区别是NaN等于自身，而精确相等运算符认为NaN不等于自身。两个对象总是不相等的。
       let set = new Set([1, 22, 33, 11, 1, '11', '11', true])
-      let set2 = [...set]
+      let set2 = [...set] // 相当于数组去重
       set.add(1111)
       console.log(set)
       console.log(typeof set)
       console.log(set2)
       set2.push(1)
       console.log(set2)
+      /** 属性
+       * Set.prototype.size：返回Set实例的成员总数。
+       * add(value)：添加某个值，返回 Set 结构本身。可链式操作
+       * delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+       * has(value)：返回一个布尔值，表示该值是否为Set的成员。
+       * clear()：清除所有成员，没有返回值。
+       */
     },
     demo2 () {
       const map = new Map([
