@@ -11,7 +11,10 @@ export default{
   created () {
     // this.promise1()
     // this.promise2()
-    this.promise3()
+    // this.promise3()
+    // this.promise4()
+    // this.promise5()
+    this.promise6()
   },
   methods: {
     // promise解决回调地狱
@@ -71,6 +74,89 @@ export default{
       this.getJSON().then((val) => {
         console.log(val)
       }).catch((err) => {
+        console.log(err)
+      })
+    },
+    // finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。finally方法的回调函数不接受任何参数，这意味着没有办法知道，前面的 Promise 状态到底是fulfilled还是rejected。这表明，finally方法里面的操作，应该是与状态无关的，不依赖于 Promise 的执行结果。
+    // Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。
+    promise4 () {
+      const p1 = new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('p1')
+          resolve('success:p1')
+        }, 1000)
+      })
+      const p2 = new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('p2')
+          resolve('success:p2')
+        }, 500)
+      })
+      const p3 = new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('p3')
+          resolve('success:p3')
+        }, 3000)
+      })
+      let all = Promise.all([p1, p2, p3])
+      all.then(() => {
+        console.log('bb')
+      }).catch((err) => {
+        console.log(err)
+      })
+      // 如果作为参数的 Promise 实例，自己定义了catch方法，那么它一旦被rejected，并不会触发Promise.all()的catch方法。
+    },
+    // Promise.race方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。只要promise实例中有一个成功，race的状态就变成成功。但是其他的仍然会继续执行,promise无法中断
+    promise5 () {
+      const p1 = new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('p1')
+          resolve('success:p1')
+        }, 1000)
+      })
+      const p2 = new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('p2')
+          resolve('success:p2')
+        }, 500)
+      })
+      const p3 = new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('p3')
+          resolve('success:p3')
+        }, 3000)
+      })
+      let all = Promise.race([p1, p2, p3])
+      all.then((res) => {
+        console.log(res)
+      }).catch((err) => {
+        console.log(err)
+      })
+
+      // 如果指定时间内没有获得结果，就将 Promise 的状态变为reject，否则变为resolve。
+      const p = Promise.race([
+        fetch('/resource-that-may-take-a-while'),
+        new Promise(function (resolve, reject) {
+          setTimeout(() => reject(new Error('request timeout')), 5000)
+        })
+      ])
+
+      p
+        .then(console.log)
+        .catch(console.error)
+    },
+    // 应用
+    promise6 () {
+      // 加载图片
+      const preloadImage = function (path) {
+        return new Promise(function (resolve, reject) {
+          const image = new Image()
+          image.onload = resolve
+          image.onerror = reject
+          image.src = path
+        })
+      }
+      preloadImage().catch((err) => {
         console.log(err)
       })
     },

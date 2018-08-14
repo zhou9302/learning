@@ -15,7 +15,8 @@ import {mapGetters} from 'vuex'
 export default{
   data () {
     return {
-      myChartBar: null
+      myChartBar: null,
+      num: 0
     }
   },
   computed: {
@@ -36,18 +37,22 @@ export default{
       this.$store.dispatch('SET_OBJ', {name: 'zhou'})
     },
     download () {
-      var img = new Image()
-      img.src = this.myChartBar.getDataURL({
-        pixelRatio: 2,
-        backgroundColor: '#fff'
-      })
-      console.log(img)
-      var a = document.createElement('a')
-      var event = new MouseEvent('click')
+      setInterval(() => {
+        if (this.num > 50) { return }
+        var img = new Image()
+        img.src = this.myChartBar.getDataURL({
+          pixelRatio: 2,
+          backgroundColor: '#fff'
+        })
+        console.log(img)
+        var a = document.createElement('a')
+        var event = new MouseEvent('click')
 
-      a.download = '1' || '下载图片名称'
-      a.href = img.src
-      a.dispatchEvent(event)
+        a.download = '1' || '下载图片名称'
+        a.href = img.src
+        a.dispatchEvent(event)
+        this.num++
+      }, 0)
     }
   }
 }
