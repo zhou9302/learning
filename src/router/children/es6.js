@@ -39,6 +39,10 @@ const es6Router = [
     path: 'IteratorAndforOf',
     name: 'IteratorAndforOf',
     component: resolve => require(['views/es6/components/IteratorAndforOf.vue'], resolve)
+  }, {
+    path: 'generator',
+    name: 'generator',
+    component: resolve => require(['views/es6/components/generator.vue'], resolve)
   }
 ]
 export {
