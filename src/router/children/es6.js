@@ -43,6 +43,10 @@ const es6Router = [
     path: 'generator',
     name: 'generator',
     component: resolve => require(['views/es6/components/generator.vue'], resolve)
+  }, {
+    path: 'async',
+    name: 'async',
+    component: resolve => require(['views/es6/components/async.vue'], resolve)
   }
 ]
 export {
