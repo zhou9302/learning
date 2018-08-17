@@ -47,6 +47,14 @@ const es6Router = [
     path: 'async',
     name: 'async',
     component: resolve => require(['views/es6/components/async.vue'], resolve)
+  }, {
+    path: 'module',
+    name: 'module',
+    component: resolve => require(['views/es6/components/module.vue'], resolve)
+  }, {
+    path: 'module1',
+    name: 'module1',
+    component: resolve => require(['views/es6/components/module1.vue'], resolve)
   }
 ]
 export {

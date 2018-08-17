@@ -79,6 +79,11 @@ export default new Router({
       path: '/pdf',
       name: 'pdf',
       component: resolve => require(['views/drawPDF/index'], resolve)
+    },
+    {
+      path: '*',
+      name: '404',
+      component: resolve => require(['views/404.vue'], resolve)
     }
   ]
 })
