@@ -1,7 +1,7 @@
 // 模糊查询
 function search (list, text) {
   let arr = []
-  for (var key in list) {
+  for (let key in list) {
     let reg = new RegExp(text, 'g')
     if (reg.exec(list[key]) != null) {
       arr.push(list[key])
@@ -23,8 +23,8 @@ function deepClone (source) {
   if (!source || typeof source !== 'object') {
     throw new Error('error arguments', 'shallowClone')
   }
-  var targetObj = source.constructor === Array ? [] : {}
-  for (var keys in source) {
+  let targetObj = source.constructor === Array ? [] : {}
+  for (let keys in source) {
     if (source.hasOwnProperty(keys)) {
       if (source[keys] && typeof source[keys] === 'object') {
         targetObj[keys] = source[keys].constructor === Array ? [] : {}
