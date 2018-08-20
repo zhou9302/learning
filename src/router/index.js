@@ -10,6 +10,7 @@ import dayjs from 'views/dayjs/index'
 import mockJS from 'views/mockJSDemo/index'
 import {es6Router} from './children/es6.js'
 import {echartDemo} from './children/echartDemo.js'
+
 Vue.use(Router)
 
 export default new Router({

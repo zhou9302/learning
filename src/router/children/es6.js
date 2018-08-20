@@ -55,6 +55,10 @@ const es6Router = [
     path: 'module1',
     name: 'module1',
     component: resolve => require(['views/es6/components/module1.vue'], resolve)
+  }, {
+    path: 'class',
+    name: 'class',
+    component: resolve => require(['views/es6/components/class.vue'], resolve)
   }
 ]
 export {
