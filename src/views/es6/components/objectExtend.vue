@@ -231,8 +231,19 @@ export default{
       }
       cat.sayName()
     },
+    // 扩展运算符
     demo6 () {
-
+      let obj = {
+        arr: [12, 1, 3, 4]
+      }
+      let obj1 = {...obj}
+      console.log(obj1.arr === obj.arr) // true
+      obj1.arr.sort(compare)
+      console.log(obj.arr) // [1, 1, 3, 4]
+      console.log(obj1.arr) // [1,2]
+      function compare (a, b) {
+        return a - b
+      }
     }
   }
 }

@@ -59,6 +59,11 @@ const es6Router = [
     path: 'class',
     name: 'class',
     component: resolve => require(['views/es6/components/class.vue'], resolve)
+  },
+  {
+    path: 'traversal',
+    name: 'traversal',
+    component: resolve => require(['views/es6/components/traversal.vue'], resolve)
   }
 ]
 export {
