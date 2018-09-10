@@ -9,7 +9,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import dayjs from 'dayjs'
 import htmlToPdf from 'utils/htmlToPdf.js'
-// require('styles/index.scss')
+import './styles/index.scss'
 require('./mock/index')
 
 Vue.use(htmlToPdf)
