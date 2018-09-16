@@ -10,6 +10,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 const env = require('../config/prod.env')
 
@@ -73,6 +75,21 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
+    }),
+    //spa预渲染
+    new PrerenderSPAPlugin({
+      // Required - The path to the webpack-outputted app to prerender.
+      staticDir: path.resolve(__dirname, '../dist'),
+      // Required - Routes to render.
+      routes: [ '/','/layout' ],
+      renderer: new Renderer({
+        inject: {
+          foo: 'bar'
+        },
+        headless: false,
+        // 在 main.js 中 document.dispatchEvent(new Event('render-event'))，两者的事件名称要对应上。
+        renderAfterDocumentEvent: 'render-event'
+      })
     }),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),

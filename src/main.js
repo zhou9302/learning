@@ -24,5 +24,10 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  // 预渲染
+  mounted () {
+    document.dispatchEvent(new Event('render-event'))
+  }
+
 })

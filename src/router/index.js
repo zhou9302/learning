@@ -14,6 +14,7 @@ import {echartDemo} from './children/echartDemo.js'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
