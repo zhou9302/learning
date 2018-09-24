@@ -10,7 +10,11 @@ import 'swiper/dist/css/swiper.css'
 import dayjs from 'dayjs'
 import htmlToPdf from 'utils/htmlToPdf.js'
 import './styles/index.scss'
-require('./mock/index')
+
+// mockjs数据只在测试环境使用 require运行时加载
+if (process.env.NODE_ENV === 'development') {
+  require('./mock/index')
+}
 
 Vue.use(htmlToPdf)
 Vue.config.productionTip = false
