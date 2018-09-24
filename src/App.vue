@@ -7,10 +7,7 @@
 
 <script>
 export default {
-  name: 'App',
-  created () {
-    console.log(process.env.NODE_ENV)
-  }
+  name: 'App'
 }
 </script>
 

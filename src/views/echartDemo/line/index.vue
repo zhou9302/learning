@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import echarts from 'components/echart/init.js'
+// import echarts from 'components/echart/init.js'
 import Opt from 'components/echart/line/option.js'
 import Opt2 from 'components/echart/bar/option.js'
 import {mapGetters} from 'vuex'
@@ -25,11 +25,11 @@ export default{
   mounted () {
     let option = new Opt()
     // console.log(option)
-    var myChartLine = echarts.init(this.$refs.echartsLine)
+    var myChartLine = window.echarts.init(this.$refs.echartsLine)
     myChartLine.setOption(option)
 
     let optionBar = new Opt2()
-    this.myChartBar = echarts.init(this.$refs.echartsBar)
+    this.myChartBar = window.echarts.init(this.$refs.echartsBar)
     this.myChartBar.setOption(optionBar)
   },
   methods: {

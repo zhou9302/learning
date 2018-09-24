@@ -8,7 +8,7 @@
 </template>
 <script>
 import axios from 'axios'
-import echarts from 'components/echart/init.js'
+// import echarts from 'components/echart/init.js'
 import Opt from 'components/echart/graph/option.js'
 export default{
   data () {
@@ -41,7 +41,7 @@ export default{
   methods: {
     draw () {
       // let option = new Opt()
-      var myChartLine = echarts.init(this.$refs.echartsLine)
+      var myChartLine = window.echarts.init(this.$refs.echartsLine)
       myChartLine.setOption(this.option)
     }
   }

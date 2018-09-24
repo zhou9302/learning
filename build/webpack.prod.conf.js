@@ -33,7 +33,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     'vue': 'Vue',
     'vue-router': 'VueRouter',
     'vuex': 'Vuex',
-    'axios': 'axios'
+    'axios': 'axios',
+    'echarts':'window.echarts',
+    'd3':'window.d3'
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html

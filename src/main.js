@@ -10,7 +10,8 @@ import 'swiper/dist/css/swiper.css'
 import dayjs from 'dayjs'
 import htmlToPdf from 'utils/htmlToPdf.js'
 import './styles/index.scss'
-
+// import echarts from '../src/components/echart/init'
+import echarts from 'echarts'
 // mockjs数据只在测试环境使用 require运行时加载
 if (process.env.NODE_ENV === 'development') {
   require('./mock/index')
@@ -22,6 +23,7 @@ Vue.use(VueAwesomeSwiper)
 
 window.dayjs = dayjs
 window.d3 = d3
+window.echarts = echarts
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
