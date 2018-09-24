@@ -5,8 +5,8 @@ import App from './App'
 import router from './router'
 import store from './store/index'
 import * as d3 from 'd3'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import 'swiper/dist/css/swiper.css'
 import dayjs from 'dayjs'
 import htmlToPdf from 'utils/htmlToPdf.js'
 import './styles/index.scss'
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 
 Vue.use(htmlToPdf)
 Vue.config.productionTip = false
-Vue.use(VueAwesomeSwiper)
+// Vue.use(VueAwesomeSwiper)
 
 window.dayjs = dayjs
 window.d3 = d3

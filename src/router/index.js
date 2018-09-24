@@ -1,13 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import d3chart from 'views/d3Demo/Sunburst'
-import grail from 'views/layoutDemo/grail'
-import flex from 'views/layoutDemo/flex'
-import layout from 'views/layoutDemo/layout'
-import swiper from 'views/swiperDemo/index'
-import dayjs from 'views/dayjs/index'
-import mockJS from 'views/mockJSDemo/index'
 import {es6Router} from './children/es6.js'
 import {echartDemo} from './children/echartDemo.js'
 
@@ -19,13 +11,13 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: resolve => require(['components/HelloWorld'], resolve)
     },
     // d3图形demo
     {
       path: '/d3/sunburst',
       name: 'D3',
-      component: d3chart
+      component: resolve => require(['views/d3Demo/Sunburst'], resolve)
     },
     // echart图形demo
     {
@@ -38,37 +30,37 @@ export default new Router({
     {
       path: '/grail',
       name: 'grail',
-      component: grail
+      component: resolve => require(['views/layoutDemo/grail'], resolve)
     },
     // flex布局
     {
       path: '/flex',
       name: 'flex',
-      component: flex
+      component: resolve => require(['views/layoutDemo/flex'], resolve)
     },
     // 后台管理系统布局layout
     {
       path: '/layout',
       name: 'layout',
-      component: layout
+      component: resolve => require(['views/layoutDemo/layout'], resolve)
     },
     // 轮播demo
     {
       path: '/swiper',
       name: 'swiper',
-      component: swiper
+      component: resolve => require(['views/swiperDemo/index'], resolve)
     },
     // 日期组件
     {
       path: '/dayjs',
       name: 'dayjs',
-      component: dayjs
+      component: resolve => require(['views/dayjs/index'], resolve)
     },
     // mockjs demo
     {
       path: '/mockJS',
       name: 'mockJS',
-      component: mockJS
+      component: resolve => require(['views/mockJSDemo/index'], resolve)
     },
     // ES6学习
     {
