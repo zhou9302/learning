@@ -45,7 +45,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     new UglifyJsPlugin({
       uglifyOptions: {
         compress: {
-          warnings: false
+          warnings: false,
+          drop_console:true,
+          pure_funcs:['console.log'] //移除console
         }
       },
       sourceMap: config.build.productionSourceMap,
@@ -133,6 +135,19 @@ const webpackConfig = merge(baseWebpackConfig, {
       minChunks: 3
     }),
 
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name:'html2canvas',
+    //   chunks:['html2canvas'],
+    //   minChunks:function(module){
+    //     return (
+    //         module.resource &&
+    //         /\.js$/.test(module.resource) &&
+    //         module.resource.indexOf(
+    //           path.join(__dirname, '../node_modules')
+    //         ) === 0 && ['html2canvas'].indexOf( module.resource.substr(module.resource.lastIndexOf('/')+1).toLowerCase() ) != -1
+    //       )
+    //   }
+    // }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
